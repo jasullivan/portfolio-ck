@@ -70,7 +70,7 @@
 }
 /* projects-section - found in index */
 .project-columns {
-    padding: 16rem 0.5rem 0rem;
+    padding: 13rem 0.5rem 0rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -79,6 +79,9 @@
     -ms-flex-direction: column;
     flex-direction: column;
     width: 100%;
+    @include respond(sl) {
+        padding: 16rem 0.5rem 0rem;
+    }
     @include respond(lg) {
         padding: 0rem .5rem 0rem;
         -webkit-box-orient: horizontal;
@@ -98,9 +101,12 @@
 }
 .project-col {
     position: relative;
-    margin: 0rem 1rem 2rem;
+    margin: 0rem 1rem 0.5rem;
     min-width: 0;
     height: $col-height-small;
+    @include respond(sl) {
+        height: $col-height-medium
+    }
     @include respond(lg) {
         overflow-y: hidden;
         overflow-x: hidden;
@@ -122,6 +128,9 @@
     &__bg-colour {
         width: 100%;
         height: $col-height-small;
+        @include respond(sl) {
+            height: $col-height-medium
+        }
         position: absolute;
         z-index: 4;
         opacity: 0.9; 
@@ -149,6 +158,9 @@
         width: 100%;
         /*height: $col-height-small;*/
         height: $col-height-small;
+        @include respond(sl) {
+            height: $col-height-medium
+        }
         position: absolute;
         left: 0;
         z-index: 3;
@@ -208,22 +220,33 @@
         position: relative;
         color: $white;
         z-index: 4;
-        height: 14rem;
+        height: $col-height-small;
+        @include respond(sl) {
+            height: $col-height-medium
+        }
         @include respond(lg) {
+            height: 12rem;
             position: absolute;
             top: 20px;
             left: 10px;
         }
         h2 {
+            font-size: 2.75rem;
             font-weight: 300;
             margin: -1rem 0 0 2rem;
+            @include respond(sl) {
+                font-size: 3rem;
+            }
             @include respond(lg) {
                 margin: 0;
             }
         }
         h3 {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             margin: 0 0 0 2rem;
+            @include respond(sl) {
+                font-size: 1.75rem;
+            }
             @include respond(lg) {
                 margin: 0;
             }
@@ -419,7 +442,7 @@
         display: flex;
         opacity: 1;
         padding-bottom: 2rem;
-        padding-top: 30.5rem;
+        padding-top: 32rem;
         -webkit-animation-name: openContent;
         animation-name: openContent; 
         -webkit-animation-duration: 0.1s; 
@@ -430,6 +453,9 @@
         animation-delay: 0s; 
         -webkit-animation-timing-function: linear; 
         animation-timing-function: linear;
+        @include respond(sl) {
+            padding-top: 30.5rem;
+        }
         @include respond(lg) {
             padding-top: 54rem;
             -webkit-animation-duration: 0.5s;

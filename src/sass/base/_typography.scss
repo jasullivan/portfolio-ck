@@ -5,7 +5,7 @@ h1, h2, h3, h4, h5 {
 h1 {
     font-size: 3.5rem;
     font-weight: 300;
-    @include respond(md) {
+    @include respond(sl) {
         font-size: 4rem;
     }
     @include respond(lg) {

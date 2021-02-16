@@ -6,7 +6,7 @@
     z-index: 5;
     width: 100%;
     height: auto;
-    padding-bottom: 1rem;
+    padding-bottom: 0.5rem;
     position: fixed;
     @include respond(lg) {
         left: 0px;
@@ -48,9 +48,9 @@
         -webkit-box-direction: normal;
         -ms-flex-direction: column;
         flex-direction: column;
-        height: 11rem;
-        padding-top: 2rem;
-        @include respond(md) {
+        padding-top: 0.5rem;
+        @include respond(sl) {
+            height: 11rem;
             padding-top: 1.5rem;
         }
         @include respond(lg) {
@@ -80,7 +80,7 @@
     &__close-button {
         opacity: 0;
         position: absolute;
-        top: 10.5rem;
+        top: 7.5rem;
         right: 1.5rem;
         width: 5rem;
         height: 5rem;
@@ -90,6 +90,9 @@
         -webkit-transition: opacity 0.5s linear;
         -o-transition: opacity 0.5s linear;
         transition: opacity 0.5s linear;
+        @include respond(sl) {
+            top: 10.5rem;
+        }
         img {
             width: 5rem;
             height: 5rem;
