@@ -1,0 +1,133 @@
+.project-content {
+    position: relative;
+    z-index: 2;
+    font-size: 0;
+    opacity: 0;
+    top: $content-offscreen;
+    display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-items: center;
+    @include respond(lg) {
+        display: flex;
+    }
+    &__bio {
+        width: 85%;
+        margin: 0 auto 2.5rem;
+        p {
+            font-family: "Roboto Slab",sans-serif;
+            font-weight: 300;
+            font-size: 3rem;
+            @include respond(lg) {
+                font-size: 3.25rem;
+            }
+            @include respond(xlg) {
+                font-size: 3.75rem;
+            }
+        }
+    }
+    &__role-and-link {
+        width: 85%;
+        margin: 0 0 6rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: left;
+        -ms-flex-pack: left;
+        justify-content: left;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        @include respond(md) {
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+        }
+        a {
+            margin: 0.5rem 0 0;
+            display: block;
+            width: 40%;
+            @include respond(md) {
+                width: initial;
+                margin: 0 0 0 2rem;
+            }
+        }
+    }
+    &__role {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: left;
+        -ms-flex-pack: left;
+        justify-content: left;
+        margin: 0 0 2rem;
+        @include respond(md) {
+            margin: 0 0 0 3rem;
+            &:first-of-type {
+                margin: 0;
+            }
+        }
+    }
+    &__images {
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+        justify-content: space-evenly;
+        &--box-shadow {
+            img {
+                -webkit-box-shadow: 0px 2px 7px 0px #ccc; 
+                box-shadow: 0px 2px 7px 0px #ccc;
+            }
+        }
+        &--col-bg {
+            padding: 5% 0 5%;
+        }
+        &--mauve {background: $col-one;}
+        &--red {background: $col-two;}
+        &--yellow {background: $col-three;}
+        &--orange {background: $col-four;}
+        &--blue {background: $col-five;}
+        &--purple {background: $col-six;}
+        // p {flex: 1;}
+        &--large {
+            width: 90%;
+            height: 100%;
+            max-width: 1400px;
+            margin: 7.5% auto 7.5%;
+            border-radius: 0.8rem;
+            @include respond(lg) {
+                width: 70%;
+            }
+        }
+        &--small {
+            width: 60%;
+            height: 100%;
+            margin: 0% auto;
+            max-width: 900px;
+            border-radius: 0.8rem;
+            margin: 7.5% auto 7.5%;
+            @include respond(lg) {
+                width: 30%;
+            }
+        }
+    }
+}

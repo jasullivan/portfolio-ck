@@ -1,0 +1,71 @@
+/* reset for different browsers - normalize and reset not really needed anymore */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    /* better to inherit this from body so it's more future proof and is the standard approach */
+    box-sizing: inherit; 
+}
+html {
+    /* needs to be % so that it doesn't overide the browser default size. */
+    /* this would mean users wouldn't be able to zoom in */
+    /* font-size: 10px; */
+    /* this defines what 1rem is*/
+    font-size: 62.5%;
+}
+body {
+    box-sizing: border-box; 
+}
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    @include respond(lg) {
+        position: fixed;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+    }
+    &.open {
+        .bio-section {
+            opacity: 1;
+            z-index: 6;
+            @include respond(lg) {
+                opacity: 1;
+                z-index: 5;
+            }
+        }
+        .projects-section {
+            @include respond(lg) {
+                background: $white;
+            }
+        }
+    }
+}
+li {
+    list-style: none;
+}
+.project-col__bg-colour * {
+    pointer-events: none;
+}
+.project-col .project-col__bg, .project-col .project-content, .project-col .project-col__info-button, .project-col__project-title, .project-col__bg-colour--mob-show {
+    pointer-events: none;
+}
+.project-col--open .project-content {
+    pointer-events: auto;
+}
+
+
+
+
+
+

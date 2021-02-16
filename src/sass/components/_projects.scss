@@ -1,0 +1,491 @@
+@-webkit-keyframes openContent { 
+    0% { 
+        opacity: 0;
+        top: $content-offscreen; 
+    }
+    100% { 
+        opacity: 1;
+        top: $content-onscreen;
+    } 
+}
+@keyframes openContent { 
+    0% { 
+        opacity: 0;
+        top: $content-offscreen; 
+    }
+    100% { 
+        opacity: 1;
+        top: $content-onscreen;
+    } 
+}
+@-webkit-keyframes closeContent { 
+    0% { 
+        opacity: 1;
+        top: $content-onscreen;
+    }
+    20% { 
+        opacity: 0.4;
+        top: $content-onscreen;
+    }
+    100% { 
+        opacity: 0;
+        top: $content-offscreen; 
+    } 
+}
+@keyframes closeContent { 
+    0% { 
+        opacity: 1;
+        top: $content-onscreen;
+    }
+    20% { 
+        opacity: 0.4;
+        top: $content-onscreen;
+    }
+    100% { 
+        opacity: 0;
+        top: $content-offscreen; 
+    } 
+}
+
+/* projects-section - found in index */
+.projects-section {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    @include respond(lg) {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: calc(100% - 35rem);
+        height: 100%;
+        overflow: visible;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+}
+/* projects-section - found in index */
+.project-columns {
+    padding: 16rem 0.5rem 0rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    @include respond(lg) {
+        padding: 0rem .5rem 0rem;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        height: $columns-height;
+        width: 100%;
+    }
+    &--open {
+        height: 100%;
+        background: $white;
+        @include respond(lg) {
+            height: $columns-height;
+        }
+    }
+}
+.project-col {
+    position: relative;
+    margin: 0rem 1rem 2rem;
+    min-width: 0;
+    height: $col-height-small;
+    @include respond(lg) {
+        overflow-y: hidden;
+        overflow-x: hidden;
+        -webkit-box-flex: 1;
+        -ms-flex: 1 0 75px;
+        flex: 1 0 75px;
+        margin: 0 0.5rem;
+        min-height: 0;
+        height: auto;
+        /* for safari (flex) */
+        -webkit-transition: all 0.4s 0.15s;
+        -o-transition: all 0.4s 0.15s;
+        transition: all 0.4s 0.15s;
+        /*&:hover {
+             for safari 
+            transition: all 0.4s 0.15s;
+        }*/
+    }
+    &__bg-colour {
+        width: 100%;
+        height: $col-height-small;
+        position: absolute;
+        z-index: 4;
+        opacity: 0.9; 
+        &--one {background: $col-one;}
+        &--two {background: $col-two;}
+        &--three {background: $col-three;}
+        &--four {background: $col-four;}
+        &--five {background: $col-five;}
+        &--six {background: $col-six;}
+
+        -webkit-transition: opacity 0.75s ease-in;
+        -o-transition: opacity 0.75s ease-in;
+        transition: opacity 0.75s ease-in;
+        @include respond(lg) {
+            opacity: 1; 
+            -webkit-transition: height 0.5s 0.25s linear, opacity 0.4s 0.15s linear;
+            -o-transition: height 0.5s 0.25s linear, opacity 0.4s 0.15s linear;
+            transition: height 0.5s 0.25s linear, opacity 0.4s 0.15s linear;
+        }
+        @include respond(lg) {
+            height: 100%;
+        }
+    }
+    &__bg {
+        width: 100%;
+        /*height: $col-height-small;*/
+        height: $col-height-small;
+        position: absolute;
+        left: 0;
+        z-index: 3;
+        opacity: 1;
+        -webkit-transition: height 0.1s linear; 
+        -o-transition: height 0.1s linear; 
+        transition: height 0.1s linear; 
+        @include respond(lg) {
+            height: 100%;
+            -webkit-transition: height 0.5s 0.25s linear, opacity 0.4s 0.15s linear;
+            -o-transition: height 0.5s 0.25s linear, opacity 0.4s 0.15s linear;
+            transition: height 0.5s 0.25s linear, opacity 0.4s 0.15s linear; 
+        }
+    }
+    &__svg {
+        display: none;
+        @include respond(lg) {
+            display: block;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            z-index: 5;
+            width: 2.5rem;
+            padding: 0;
+            margin: 0;
+        }
+        &--hold {
+            pointer-events: none;
+        }
+    }
+    &__close-button {
+        @include respond(lg) {
+            -webkit-transition: -webkit-transform 0.2s ease-in;
+            transition: -webkit-transform 0.2s ease-in;
+            -o-transition: transform 0.2s ease-in;
+            transition: transform 0.2s ease-in;
+            transition: transform 0.2s ease-in, -webkit-transform 0.2s ease-in;
+            cursor: pointer;
+            &--show {
+                -webkit-transform: rotate(45deg);
+                    -ms-transform: rotate(45deg);
+                        transform: rotate(45deg);
+            }
+        }
+    }
+    &__project-title {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        position: relative;
+        color: $white;
+        z-index: 4;
+        height: 14rem;
+        @include respond(lg) {
+            position: absolute;
+            top: 20px;
+            left: 10px;
+        }
+        h2 {
+            font-weight: 300;
+            margin: -1rem 0 0 2rem;
+            @include respond(lg) {
+                margin: 0;
+            }
+        }
+        h3 {
+            font-size: 1.75rem;
+            margin: 0 0 0 2rem;
+            @include respond(lg) {
+                margin: 0;
+            }
+        }
+        @include respond(lg) {
+            display: none;
+            &--show {
+                display: block;
+            }
+        }
+    }
+
+    /* classes added and removed by js */
+    &--regular {
+        overflow-y: hidden;
+        cursor: pointer;
+    }
+    &--hold {
+        pointer-events: none;
+    }
+    &--expand {
+        // @include respond(lg) {
+        //     flex: 2 0 260px;
+        // }
+        @include respond(lg) {
+            flex: 2 0 200px;
+        }
+        @include respond(xlg) {
+            flex: 2 0 260px;
+        }
+    }
+    &--open {
+        height: 100%;
+        @include respond(lg) {
+            -webkit-box-flex: 17;
+            -ms-flex: 17 0 200px;
+            flex: 17 0 200px;
+            height: auto;
+        }
+        @include respond(xlg) {
+            -webkit-box-flex: 17;
+            -ms-flex: 17 0 260px;
+            flex: 17 0 260px;
+        }
+    }
+    &--scroll {
+        @include respond(lg) {
+            overflow-y: auto;
+        }
+    }
+    &--closed {
+        margin: 0 1rem;
+        height: 0;
+        opacity: 0;
+        // transition: all 0.25s;
+        -webkit-transition: opacity 0.15s, margin 0.15s, height 0.25s;
+        -o-transition: opacity 0.15s, margin 0.15s, height 0.25s;
+        transition: opacity 0.15s, margin 0.15s, height 0.25s;
+        @include respond(lg) {
+            opacity: 1;
+            height: auto;
+            flex: 1 0 10px;
+            margin: 0;
+            -webkit-transition: all 0.4s 0.15s;
+            -o-transition: all 0.4s 0.15s;
+            transition: all 0.4s 0.15s;
+        }
+    }
+    /* classes added by js ends */
+
+    &__info-button {
+        display: none;
+        @include respond(lg) {
+            display: block;
+            position: absolute;
+            top: 15rem;
+            left: 0;
+            z-index: 5;
+            margin: 10px;
+            color: $white;
+            -webkit-transition: opacity 0.75s;
+            -o-transition: opacity 0.75s;
+            transition: opacity 0.75s;
+        }
+        &--hidden {
+            display: none;
+            @include respond(lg) {
+                display: block;
+                opacity: 0;
+            }
+        }
+    }
+}
+
+// project header bg images
+.no-webp {
+    .project-col__bg--one {
+        @include col-background-pos(url('../img/bg_tpr--sml.jpg'));
+        @include respond(lg) {
+            @include col-background-pos(url('../img/bg_tpr.jpg'));
+        }
+    }
+    .project-col__bg--two {
+        @include col-background-pos(url('../img/bg_epres--sml.jpg'));
+        @include respond(lg) {
+            @include col-background-pos(url('../img/bg_epres.jpg'));
+        }
+    }
+    .project-col__bg--three {
+        @include col-background-pos(url('../img/bg_landc--sml.jpg'));
+        @include respond(lg) {
+            @include col-background-pos(url('../img/bg_landc.jpg'));
+        }
+    }
+    .project-col__bg--four {
+        @include col-background-pos(url('../img/bg_mint--sml.jpg'));
+        @include respond(lg) {
+            @include col-background-pos(url('../img/bg_mint.jpg'));
+        }
+    }
+    .project-col__bg--five {
+        @include col-background-pos(url('../img/bg_ebros--sml.jpg'));
+        @include respond(lg) {
+            @include col-background-pos(url('../img/bg_ebros.jpg'));
+        }
+    }
+    .project-col__bg--six {
+        @include col-background-pos(url('../img/bg_emails--sml.jpg'));
+        @include respond(lg) {
+            @include col-background-pos(url('../img/bg_emails.jpg'));
+        }
+    }
+}
+.webp {
+    .project-col__bg--one {
+        @include col-background-pos(url('../img/bg_tpr--sml.webp'));
+        @include respond(lg) {
+            @include col-background-pos(url('../img/bg_tpr.webp'));
+        }
+    }
+    .project-col__bg--two {
+        @include col-background-pos(url('../img/bg_epres--sml.webp'));
+        @include respond(lg) {
+            @include col-background-pos(url('../img/bg_epres.webp'));
+        }
+    }
+    .project-col__bg--three {
+        @include col-background-pos(url('../img/bg_landc--sml.webp'));
+        @include respond(lg) {
+            @include col-background-pos(url('../img/bg_landc.webp'));
+        }
+    }
+    .project-col__bg--four {
+        @include col-background-pos(url('../img/bg_mint--sml.webp'));
+        @include respond(lg) {
+            @include col-background-pos(url('../img/bg_mint.webp'));
+        }
+    }
+    .project-col__bg--five {
+        @include col-background-pos(url('../img/bg_ebros--sml.webp'));
+        @include respond(lg) {
+            @include col-background-pos(url('../img/bg_ebros.webp'));
+        }
+    }
+    .project-col__bg--six {
+        @include col-background-pos(url('../img/bg_emails--sml.webp'));
+        @include respond(lg) {
+            @include col-background-pos(url('../img/bg_emails.webp'));
+        }
+    }
+}
+// project header bg images
+
+/* projects-section ends */
+.project-col--open {
+    .project-col__bg {
+        height: 40rem;
+        opacity: 1;
+        @include respond(lg) {
+            height: 50rem;
+        }
+    }
+    .project-col__bg-colour {
+        opacity: 0.9;
+        @include respond(lg) {
+            height: 12rem;
+            opacity: 0.8;
+        }
+    }
+    .project-content {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        opacity: 1;
+        padding-bottom: 2rem;
+        padding-top: 30.5rem;
+        -webkit-animation-name: openContent;
+        animation-name: openContent; 
+        -webkit-animation-duration: 0.1s; 
+        animation-duration: 0.1s; 
+        -webkit-animation-fill-mode: forwards; 
+        animation-fill-mode: forwards; 
+        -webkit-animation-delay: 0s; 
+        animation-delay: 0s; 
+        -webkit-animation-timing-function: linear; 
+        animation-timing-function: linear;
+        @include respond(lg) {
+            padding-top: 54rem;
+            -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s; 
+            -webkit-animation-delay: 0.25s; 
+            animation-delay: 0.25s; 
+        }
+    }
+}
+.project-col--regular {
+    .project-col__bg {
+        @include respond(lg) {
+            height: 100%;
+            opacity: 1;
+        }
+    }
+    .project-col__bg-colour {
+        @include respond(lg) {
+            height: 100%;
+            opacity: 0.8;
+        }
+    }
+    .project-content {
+        opacity: 0;
+        padding-bottom: 2rem;
+        // padding-top: 45rem;
+        padding-top: 54rem;
+        -webkit-animation-name: closeContent;
+        animation-name: closeContent; 
+        -webkit-animation-duration: 1s; 
+        animation-duration: 1s; 
+        -webkit-animation-fill-mode: forwards; 
+        animation-fill-mode: forwards; 
+        -webkit-animation-timing-function: linear; 
+        animation-timing-function: linear;
+        @include respond(lg) {
+            -webkit-animation-name: closeContent;
+            animation-name: closeContent; 
+            -webkit-animation-duration: 1s; 
+            animation-duration: 1s; 
+            -webkit-animation-fill-mode: forwards; 
+            animation-fill-mode: forwards; 
+            -webkit-animation-timing-function: linear; 
+            animation-timing-function: linear;
+        }
+    }
+}
+.project-col--closed {
+    .project-col__bg-colour {
+        @include respond(lg) {
+            opacity: 1;
+        }
+    }
+    &:hover .project-col__bg-colour {
+        @include respond(lg) {
+            opacity: 0.8;
+        }
+    }
+}

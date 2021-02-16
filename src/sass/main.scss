@@ -1,0 +1,13 @@
+@import "./abstracts/mixins";
+@import "./abstracts/variables";
+
+@import "./base/base";
+@import "./base/typography";
+
+@import "./components/bio";
+@import "./components/project-button";
+// @import "./components/header";
+@import "./components/projects";
+@import "./components/project-content";
+// @import "./components/footer";
+

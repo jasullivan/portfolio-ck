@@ -1,0 +1,49 @@
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+@mixin respond($breakpoint) {
+  @if $breakpoint == sl {
+    @media (min-width: 36em) { @content }; /****576px****/
+  }
+  @if $breakpoint == md {
+    @media (min-width: 48em) { @content }; /****768px****/
+  }
+  @if $breakpoint == lg {
+    @media (min-width: 62.5em) { @content }; /****1000px****/
+  }
+  @if $breakpoint == xlg {
+    @media (min-width: 75em) { @content }; /****1200px****/
+  }
+} 
+@mixin col-background-pos($img) {
+  background: $img;
+  background-position: 30% 50%;
+  background-size: cover;
+}
+@mixin contacts-svg-and-link {
+  svg {
+      margin: 0.5rem 2rem 0.5rem 0;
+      width: 3rem;
+      height: 3rem;
+      cursor: pointer;
+      &:hover {
+          .icon-circle {
+              stroke: $hover;
+          }
+          .icon-letters {
+              fill: $hover;
+          }
+      }
+  }
+  a {
+      font-size: 2rem; 
+      cursor: pointer; 
+      &:hover {
+          color: $hover;
+      }  
+  }
+}

@@ -1,0 +1,40 @@
+/******** project columns height ********/
+$columns-height: calc(100vh - 100px);
+$col-height-small: 14rem;
+
+/******** content positioning ***********/
+$content-offscreen: 45vh;
+$content-onscreen: 0vh;
+
+/******** spacing ***********/
+$homepage-spacing-left: 0 0 0 1.5rem; 
+
+/********** colours ***************/
+$white: #fff;
+$black: #000;
+/** //body copy colour */
+$bodyCopyLight: #666;
+$bodyCopy: #575757;
+$button: #0390b1;
+
+/* background colours */
+$col-one: #9e0059;
+$col-two: #ff0054;
+$col-three: #ffbd00;
+$col-four: #ff5400;
+$col-five: #06AED5;
+$col-six: #390099;
+
+$hover: #000;
+$hover2: $col-six;
+$hover3: $col-one;
+
+// 058ED9
+$col-four-green: #065143;
+$blueTransparent: rgba(3, 21, 69, 0.7);
+
+/** //font roboto */
+// $fontRobotoLight:   'robotoLight', Arial, Helvetica, sans-serif;
+// $fontRobotoRegular:   'robotoRegular', Arial, Helvetica, sans-serif;
+// $fontRobotoBold:   'robotoBold', Arial, Helvetica, sans-serif;
+// $fontRobotoBlack:   'robotoBlack', Arial, Helvetica, sans-serif;
