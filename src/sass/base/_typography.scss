@@ -8,12 +8,12 @@ h1 {
     @include respond(sl) {
         font-size: 4rem;
     }
+    // @include respond(lg) {
+    //     margin-top: 2rem;
+    //     font-size: 5rem;
+    //     line-height: 5.25rem;
+    // }
     @include respond(lg) {
-        margin-top: 2rem;
-        font-size: 5rem;
-        line-height: 5.25rem;
-    }
-    @include respond(xlg) {
         margin-top: 2rem;
         font-size: 7rem;
         line-height: 7.5rem;
